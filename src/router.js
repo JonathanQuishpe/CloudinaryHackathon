@@ -7,11 +7,6 @@ const routes = [
     component: () => import('@/views/Home.vue'),
   },
   {
-    path: '/album',
-    name: 'album',
-    component: () => import('@/views/Album.vue'),
-  },
-  {
     path: '/:pathMatch(.*)*',
     component: () => import('@/views/Home.vue'),
   },
