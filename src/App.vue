@@ -3,57 +3,63 @@ import CustomHeader from "@/components/CustomHeader.vue";
 </script>
 
 <template>
-  <div class="container py-3">
-    <custom-header />
-    <main>
-      <RouterView />
-    </main>
-  </div>
+  <custom-header />
+  <main class="main">
+    <RouterView />
+  </main>
+  <footer class="footer section">
+    <div class="shape-small"></div>
+    <div class="shape-big"></div>
+
+    <div class="footer-container container grid">
+      <div>
+        <a href="#" class="footer-logo">
+          <img src="https://i.postimg.cc/3w79mb3Z/logo-skull.png" alt="logo" />
+          Halloween
+        </a>
+
+        <p class="footer-description">
+          Disfruta de lo más <br />espeluznante noche de tu vida
+        </p>
+      </div>
+
+      <div class="footer-content">
+        <div>
+          <h3 class="footer-title">Social Media</h3>
+
+          <ul class="footer-social">
+            <a
+              href="https://github.com/JonathanQuishpe"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-github-fill"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/jonathan-quishpe-ab0228188/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-linkedin-box-fill"></i>
+            </a>
+          </ul>
+        </div>
+      </div>
+
+      <img
+        src="https://i.postimg.cc/Qd9Pn3JX/footer-tree1.png"
+        alt="image"
+        class="footer-tree1"
+      />
+      <img
+        src="https://i.postimg.cc/HLCN21GJ/footer-tree2.png"
+        alt="image"
+        class="footer-tree2"
+      />
+    </div>
+
+    <span class="footer-copy">
+      &#169; Copyright Andrés Quishpe. All rights reserved
+    </span>
+  </footer>
 </template>
-<style>
-body {
-  background-color: #0b0b0b !important; /* Fondo negro */
-  color: #ff7518 !important; /* Texto naranja */
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-small,
-p,
-.title {
-  font-family: "Creepster", cursive;
-  color: #ff7518; /* Naranja */
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
-}
-
-.flicker {
-  animation: flicker 1.5s infinite alternate;
-}
-
-@keyframes flicker {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-.btn-halloween {
-  background-color: #ff7518;
-  border-color: #ff7518;
-  color: black;
-  box-shadow: 0px 0px 15px rgba(255, 117, 24, 0.8);
-}
-
-.btn-halloween:hover {
-  background-color: #e5650a;
-  color: white;
-}
-</style>

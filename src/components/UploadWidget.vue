@@ -13,10 +13,7 @@ const processResults = (error, result) => {
   }
   if (result && result.event === "success") {
     const secureUrl = result.info.secure_url;
-    const previewUrl = secureUrl.replace(
-      "/upload/",
-      "/upload/w_400/f_auto,q_auto/"
-    );
+    const previewUrl = secureUrl.replace("/upload/", "/upload/w_400/f_auto,q_auto/");
     emit("photo-upload", result);
     uploadedImages.value.push(previewUrl);
     isDisabled.value = false;
@@ -77,11 +74,7 @@ onMounted(async () => {
   <button
     type="button"
     :class="{
-      'w-100': true,
-      'btn-primary': true,
-      btn: true,
-      'btn-sm': true,
-      'btn-disabled': isDisabled,
+      button: true,
     }"
     :disabled="isDisabled"
     @click="uploadWidget"

@@ -7,9 +7,11 @@ import { text } from "@cloudinary/url-gen/qualifiers/source";
 import { Position } from "@cloudinary/url-gen/qualifiers/position";
 import { TextStyle } from "@cloudinary/url-gen/qualifiers/textStyle";
 import { source } from "@cloudinary/url-gen/actions/overlay";
-import { outline } from "@cloudinary/url-gen/actions/effect";
+import { outline, cartoonify } from "@cloudinary/url-gen/actions/effect";
 import { outer } from "@cloudinary/url-gen/qualifiers/outlineMode";
-
+import { scale, fill, crop } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { byRadius, max } from "@cloudinary/url-gen/actions/roundCorners";
 const props = defineProps({
   publicId: {
     type: String,
@@ -36,14 +38,19 @@ const cld = new Cloudinary({
 });
 const myImage = cld
   .image(props.publicId)
-  .effect(outline().mode(outer()).width(100).color(props.border))
-  .backgroundColor(props.border)
-  //.resize(fill().width(600).height(550).gravity(autoGravity()))
+  .effect(outline().mode(outer()).width(25).color(props.border))
+  .effect(cartoonify())
+  //.backgroundColor(props.border)
+  //.resize(fill().width(500).height(550).gravity(autoGravity()))
+  //.resize(fill().height(250).width(400).gravity("south"))
   .overlay(
     source(
-      text(props.title, new TextStyle("Creepster", 60)).textColor(props.text)
+      text(props.title, new TextStyle("Creepster", 45))
+        .textColor(props.text)
+        .backgroundColor(props.border)
     ).position(new Position().gravity(compass("south")).offsetY(20))
   )
+  .roundCorners(byRadius(60))
   .delivery(quality("auto"));
 const imageUrl = myImage.toURL();
 

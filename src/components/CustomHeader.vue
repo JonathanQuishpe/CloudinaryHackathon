@@ -1,14 +1,10 @@
 <template>
-  <header>
-    <div
-      class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom"
-    >
-      <router-link
-        :to="{ name: 'home' }"
-        class="d-flex align-items-center link-body-emphasis text-decoration-none title"
-      >
-        <span class="fs-4 title flicker"> Cloudinary </span>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <router-link :to="{ name: 'home' }" class="nav-logo">
+        <img src="https://i.postimg.cc/3w79mb3Z/logo-skull.png" alt="logo" />
+        Cloudinary Halloween
       </router-link>
-    </div>
+    </nav>
   </header>
 </template>
